@@ -57,30 +57,27 @@ it's generic makes it the least expressive of the iterators.
 ## Explain Why `forEach` is the Least Expressive Iterator Method
 
 By now you recognize that `map` means: "create a new `Array` after transforming
-each element." You recognize that `reduce` means: "distill a single summary
-value from a set of elements." These methods are _expressive_; their presence in
-your code tells other programmers (and your future self) what you intended to
-happen.
+each element." It's _expressive_; the method's presence in your code tells other 
+programmers (and your future self) what you intended to happen.
 
 But what does `forEach` mean? Programmers recognize that `map()` has a specific
-use, `reduce()` has a specific use, `find()` has a specific use. But `forEach()`
-is generic. Are we just printing things, or are we trying to distill to a value,
-or are we trying to produce a transformed `Array`?
+use, `find()` has a specific use. But `forEach()` is generic. Are we just printing
+things, or are we trying to distill to a value, or are we trying to produce a 
+transformed `Array`?
 
-When we use `forEach()` to do `map`-things or `reduce`-things we're not
-_documenting_ what our intention was with regard to the collection. This makes
-for code that's harder to understand and debug. Here's some code that uses
-`forEach()` instead of `reduce()`.
+When we use `forEach()` to do `map`-things we're not _documenting_ what our 
+intention was with regard to the collection. This makes for code that's harder 
+to understand and debug. Here's some code that uses `forEach()` instead of `map()`.
 
 ```js
-function sumArray(numberArray) {
-  let total = 0;
+function doubleNums(numberArray) {
+  let doubledArray = []
   numberArray.forEach(function(i) {
-    total = total + i;
+    doubledArray.push(i * 2)
   });
-  return total;
+  return doubledArray;
 }
-sumArray([1, 2, 3]); //=> 6
+doubleNums([1, 2, 3]); //=> [2, 4, 6]
 ```
 
 Sure, it works, but it doesn't _communicate_. We should always strive to have
@@ -144,7 +141,6 @@ only use `forEach()` under the specific circumstances outlined above.
 
 As you continue learning JavaScript, you should take advantage of the
 _expressive_ iterator methods we've learned about in this section as much as
-possible. Under most circumstances, using `find()`, `filter()`, `map()`, or
-`reduce()` in place of more generic options, `forEach`, `for...of`, and `for`,
-will save you work in the long run and make your code more efficient and
-expressive.
+possible. Under most circumstances, using `find()`, `filter()`, pr `map()`, 
+in place of more generic options, `forEach`, `for...of`, and `for`, will save 
+you work in the long run and make your code more efficient and expressive.
