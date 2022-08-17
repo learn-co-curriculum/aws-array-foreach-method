@@ -141,6 +141,6 @@ only use `forEach()` under the specific circumstances outlined above.
 
 As you continue learning JavaScript, you should take advantage of the
 _expressive_ iterator methods we've learned about in this section as much as
-possible. Under most circumstances, using `find()`, `filter()`, pr `map()`, 
+possible. Under most circumstances, using `find()`, `filter()`, or `map()`, 
 in place of more generic options, `forEach`, `for...of`, and `for`, will save 
 you work in the long run and make your code more efficient and expressive.
